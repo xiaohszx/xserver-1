@@ -2,7 +2,7 @@ noinst_LTLIBRARIES = libglamor.la libglamor_egl_stubs.la
 
 libglamor_la_LIBADD = $(GLAMOR_LIBS)
 
-AM_CFLAGS = $(CWARNFLAGS) $(DIX_CFLAGS) $(GLAMOR_CFLAGS)
+AM_CFLAGS = $(CWARNFLAGS) $(DIX_CFLAGS) $(GLAMOR_CFLAGS) $(LIBDRM_CFLAGS)
 
 libglamor_la_SOURCES = \
 	glamor.c \
