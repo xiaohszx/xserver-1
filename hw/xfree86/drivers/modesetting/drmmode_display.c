@@ -4150,7 +4150,7 @@ drmmode_prepare_fbpool(xf86CrtcPtr crtc, int width, int height, int bpp)
     if (drmmode_crtc->fbpool_fd > 0)
         goto mmap;
 
-    drmmode_crtc->fbpool_fd = open(file, O_RDWR | O_CLOEXEC | O_CREAT, 0666);
+    drmmode_crtc->fbpool_fd = open(file, O_RDWR, 0666);
     if (drmmode_crtc->fbpool_fd < 0) {
         ErrorF("failed to open fbpool file: %s\n", file);
         return FALSE;
