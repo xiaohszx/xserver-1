@@ -259,6 +259,7 @@ ms_do_pageflip_bo(ScreenPtr screen,
     uint32_t flags;
     int i;
     struct ms_flipdata *flipdata;
+    struct timeval tv;
 
     flipdata = calloc(1, sizeof(struct ms_flipdata));
     if (!flipdata) {
@@ -321,6 +322,9 @@ ms_do_pageflip_bo(ScreenPtr screen,
                                 flags)) {
             goto error_undo;
         }
+
+        gettimeofday(&tv, NULL);
+        drmmode_crtc->flipping_time_ms = tv.tv_sec * 1000 + tv.tv_usec / 1000;
     }
 
     /*
